@@ -28,3 +28,4 @@ resource "google_compute_firewall" "allow_http" {
   project = var.gcp_project
 
 }
+
