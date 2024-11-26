@@ -7,8 +7,8 @@ terraform {
   }
   
   # Configure backend for state storage
-  backend "gcs" {
-    bucket = "my-terraform-state-bucket"
-    prefix = "terraform/state"
-  }
+#  backend "gcs" {
+#    bucket = "my-terraform-state-bucket"
+#    prefix = "terraform/state"
+#  }
 }
