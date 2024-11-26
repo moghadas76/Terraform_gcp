@@ -12,3 +12,19 @@ resource "google_compute_subnetwork" "subnet" {
   region        = var.region
   project = var.gcp_project
 }
+
+# firewall.tf
+resource "google_compute_firewall" "allow_http" {
+  name    = "allow-http"
+  network = google_compute_network.vpc_network.id
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["http"]
+  project = var.gcp_project
+
+}
