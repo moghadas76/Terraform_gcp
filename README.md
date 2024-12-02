@@ -42,6 +42,8 @@ cd terraform-project
 ```
 
 ### Configure Environment Variables
+
+#### AWS
 Set up necessary environment variables for your cloud provider:
 ```bash
 export AWS_ACCESS_KEY_ID="your-access-key"
@@ -49,6 +51,61 @@ export AWS_SECRET_ACCESS_KEY="your-secret-key"
 export AWS_DEFAULT_REGION="your-region"
 ```
 Replace with relevant variables for your provider if not using AWS.
+
+
+#### GCP
+
+To configure Terraform with Google Cloud Provider (GCP), you typically need to set the following environment variables:
+
+#### Required Environment Variables
+1. **`GOOGLE_CREDENTIALS`**  
+   - The path to your service account key JSON file or the JSON content of the key itself.
+   - Example:
+     ```bash
+     export GOOGLE_CREDENTIALS=$(cat /path/to/your-service-account-key.json)
+     ```
+
+2. **`GOOGLE_PROJECT`**  
+   - The ID of your GCP project.
+   - Example:
+     ```bash
+     export GOOGLE_PROJECT="your-project-id"
+     ```
+
+3. **`GOOGLE_REGION`**  
+   - The region where your resources will be created.
+   - Example:
+     ```bash
+     export GOOGLE_REGION="us-central1"
+     ```
+
+4. **`GOOGLE_ZONE`** *(optional)*  
+   - The specific zone within a region where resources will be created.
+   - Example:
+     ```bash
+     export GOOGLE_ZONE="us-central1-a"
+     ```
+
+#### Using a Service Account Key File
+If you prefer to use a service account key file directly instead of setting the JSON as an environment variable, you can set:
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account-key.json"
+```
+
+### Notes:
+- These environment variables can be omitted if you configure these values in the `provider` block within your Terraform configuration file (`main.tf`):
+  ```hcl
+  provider "google" {
+    credentials = file("path/to/your-service-account-key.json")
+    project     = "your-project-id"
+    region      = "us-central1"
+    zone        = "us-central1-a"
+  }
+  ```
+- Using the `GOOGLE_APPLICATION_CREDENTIALS` variable is recommended when managing credentials for multiple tools that interact with GCP.
+
+Make sure your service account has sufficient permissions for the resources you plan to manage.
+
 
 ## Usage
 
