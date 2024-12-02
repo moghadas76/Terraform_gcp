@@ -37,7 +37,7 @@ Follow the [Terraform installation guide](https://developer.hashicorp.com/terraf
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/terraform-project.git
+git clone https://github.com/moghadas76/Terraform_gcp.git
 cd terraform-project
 ```
 
