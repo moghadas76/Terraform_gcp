@@ -1,6 +1,10 @@
 
 # Terraform GCP Project
 
+## News
+
+- I made a cloud cheatsheet for Azure and AWS. [Link](https://github.com/moghadas76/Terraform_gcp/wiki/Cloud-Cheat-Sheet)
+
 Welcome to the **Terraform Project** repository! This project is designed to manage and automate the provisioning of cloud infrastructure using [Terraform](https://www.terraform.io/), an Infrastructure as Code (IaC) tool.
 
 ## Table of Contents
